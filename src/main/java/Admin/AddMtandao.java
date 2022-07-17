@@ -13,6 +13,7 @@ public class AddMtandao {
 	public String getMtandaotype() {
 		return mtandaotype;
 	}
+	//test commit
 
 	public void setMtandaotype(String mtandaotype) {
 		this.mtandaotype = mtandaotype;

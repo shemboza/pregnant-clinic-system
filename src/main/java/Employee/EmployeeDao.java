@@ -17,7 +17,7 @@ public class EmployeeDao {
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
 				con=DriverManager.getConnection("jdbc:mysql://localhost/project2022","root","");
-				System.out.print("Connected");
+				
 			}catch(ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 				
@@ -43,7 +43,7 @@ public class EmployeeDao {
 				ps.setInt(6, e.getContact_number());
 				int rowsUpdated=ps.executeUpdate();
 				if(rowsUpdated>0) {
-				System.out.println("Employee successful added");
+				
 			            
 			    }
 			}catch(SQLException ex) {
@@ -99,7 +99,7 @@ public class EmployeeDao {
 				
 				int rowsUpdated=ps.executeUpdate();
 				if(rowsUpdated>0) {
-				System.out.println("User successful added");
+				
 			            
 			    }
 			}catch(SQLException ex) {
@@ -160,7 +160,7 @@ public class EmployeeDao {
 						String status=rst.getString("Professional_status");
 						int contact=rst.getInt("Contact_number");
 						modl=new EmployeeModel(contact,fullname,email,gender,status,employeeid);
-						System.out.print(modl.getContact_number());
+						
 					}
 						
 				 

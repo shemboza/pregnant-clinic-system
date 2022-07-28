@@ -193,25 +193,27 @@ List <ProgressFileModel> file=ProgressDao.Mprintie(request.getParameter("id"));
 						  
 						  
 						  </tr>
+						  <tr>
+							<th>PROPHESSIONAL NAME</th>
+							<% for(ProgressFileModel mod:file){ %>
+							<td><%=mod.getProffessionalname() %></td>
+							<%} %>
+							</tr>
+							<tr>
+							<th>PROPHESSIONAL POSITION</th>
+							<% for(ProgressFileModel mod:file){ %>
+							<td><%=mod.getProffposition()%></td>
+							<%} %>
+							</tr>
+
+						  
 					</tbody>
 						  
 </table>
-<table>
-<tr>
-<td>PROPHESSIONAL NAME:</td>
-<td></td>
-
-
-
-<td>PROPHESSIONAL POSITION:</td>
-<td></td>
 
 
 
 
-</tr>
-
-</table>
 
 
 

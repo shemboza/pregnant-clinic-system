@@ -18,7 +18,7 @@
 <div id="wrapper">
 
         <!-- Sidebar -->
-        <%@ include file="../Admin/SideBar.jsp" %>
+         <%@ include file="../Dashboards/Receptionsidebar.jsp" %>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -28,7 +28,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <%@ include file="../Admin/Header.jsp" %>
+               <%@ include file="../Dashboards/ReceptionHeader.jsp" %>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->

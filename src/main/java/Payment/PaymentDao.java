@@ -2,7 +2,6 @@ package Payment;
 
 import java.sql.Connection;
 
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 
 
@@ -70,9 +71,32 @@ public class PaymentDao {
 		return d;
 		
 	}
+	public static PaymentModel PaymentById(int i) {
+		 Connection con=myconn();
+		 PaymentModel modl=null;
+		 try {
+				
+				String query="SELECT * FROM appointmentpayment WHERE appointmentId=?";
+				PreparedStatement ps=con.prepareStatement(query);
+				ps.setInt(1, i);
+				ResultSet rst=ps.executeQuery();
+				if(rst.next()) {
+					int appointmentId=rst.getInt("appointmentId");
+					String patientid=rst.getString("patientId");
+					String mtandao=rst.getString("mtandao");
+					String paymentcode=rst.getString("paymentcode");
+					String status=rst.getString("Status");
+					modl=new PaymentModel(patientid,paymentcode, mtandao,status,appointmentId);
+
+					}
+					
+		 }catch(SQLException e) {
+			 e.printStackTrace();
+		 }
+		return modl;
 		
 		
 		
-	
+	}	
 
 }

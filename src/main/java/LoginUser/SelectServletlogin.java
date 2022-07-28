@@ -36,6 +36,7 @@ public class SelectServletlogin extends HttpServlet {
 		// TODO Auto-generated method stub
 	//response.getWriter().append("Served at: ./Userlogin/user.jsp").append(request.getContextPath());
 		//response.sendRedirect("");
+		
 	}
 
 	/**
@@ -73,34 +74,49 @@ public class SelectServletlogin extends HttpServlet {
 	}*/
 		
 		
-		
-		String email=request.getParameter("email");
-		String password=Encryption.getEcriptedpass(request.getParameter("pass"));
-		LoginModel re=LoginDao.SeAll(email,password);
-		HttpSession session=request.getSession();
-		if(re !=null) {
-			if(re.getRole().equalsIgnoreCase("PARTIENT")) {
-				session.setAttribute("patient", re);
-				response.sendRedirect("./PatientAandReg/index.jsp");
-			}else if(re.getRole().equalsIgnoreCase("DOCTOR")) {
-				session.setAttribute("doctor", re);
-				response.sendRedirect("./Admin/index.jsp");
-			}else if(re.getRole().equalsIgnoreCase("LABORATORY")) {
-				session.setAttribute("laboratory", re);
-				response.sendRedirect("./PatientFiles/Laboratorydashboard.jsp");
-				
-			}else if(re.getRole().equalsIgnoreCase("RECEPTION")) {
-				session.setAttribute("reception", re);
-				response.sendRedirect("./Dashboards/Reception.jsp");
-			}else if(re.getRole().equalsIgnoreCase("PHARMACY")) {
-				session.setAttribute("pharmacy", re);
-				response.sendRedirect("./Dashboards/Pharmacy.jsp");
+		if(request.getParameter("email").isEmpty() != true && request.getParameter("pass").isEmpty() != true) {
+			String email=request.getParameter("email");
+			String password=Encryption.getEcriptedpass(request.getParameter("pass"));
+			LoginModel re=LoginDao.SeAll(email,password);
+			
+			if(re !=null) {
+				HttpSession session=request.getSession();
+				if(re.getRole() ==null) {
+					request.getSession().setAttribute("error1", "Wrong username or password");
+					response.sendRedirect("./Userlogin/user.jsp");
+				}
+				else if(re.getRole().equalsIgnoreCase("PARTIENT")) {
+					session.setAttribute("patient", re);
+					
+					response.sendRedirect("./PatientAandReg/index.jsp");
+				}else if(re.getRole().equalsIgnoreCase("DOCTOR")) {
+					session.setAttribute("doctor", re);
+					response.sendRedirect("./Admin/index.jsp");
+				}else if(re.getRole().equalsIgnoreCase("LABORATORY")) {
+					session.setAttribute("laboratory", re);
+					response.sendRedirect("./Lab/LabDash.jsp");
+					
+				}else if(re.getRole().equalsIgnoreCase("RECEPTION")) {
+					session.setAttribute("reception", re);
+					response.sendRedirect("./Dashboards/Redashboard.jsp");
+				}else if(re.getRole().equalsIgnoreCase("PHARMACY")) {
+					session.setAttribute("pharmacy", re);
+					response.sendRedirect("./Dashboards/Pharmacy.jsp");
+				}else {
+					request.getSession().setAttribute("error", "Wrong username or password");
+					response.sendRedirect("./Userlogin/user.jsp");
+				}
 			}else {
+				
 				request.getSession().setAttribute("error", "Wrong username or password");
 				response.sendRedirect("./Userlogin/user.jsp");
+				
 			}
 			
+		}else {
+			response.sendRedirect("./Userlogin/user.jsp");
 		}
+		
 	}
 		
 

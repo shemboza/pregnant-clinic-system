@@ -1,6 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.*,PatientAppandReg.*"%>
+    <%@ page import="LoginUser.*" %>
+
+<%@ page import="PatientAppandReg.*,java.util.*" %>
+<%@ page import="java.sql.*" %>
+
+
+ 
+   
+	
+<%
+response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
+	response.addHeader("Pragma", "no-cache");
+	response.addDateHeader("Expires", 0);
+	
+%>
+<%
+if(session.getAttribute("doctor")==null){
+	response.sendRedirect("../Userlogin/user.jsp");
+}
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>

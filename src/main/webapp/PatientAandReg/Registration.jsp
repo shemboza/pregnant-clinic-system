@@ -1,5 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import="LoginUser.*" %>
+
+<%@ page import="PatientAppandReg.*,java.util.*" %>
+<%@ page import="java.sql.*" %>
+
+
+ 
+   
+	
+<%
+response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
+	response.addHeader("Pragma", "no-cache");
+	response.addDateHeader("Expires", 0);
+	
+%>
+<%
+if(session.getAttribute("doctor")==null){
+	response.sendRedirect("../Userlogin/user.jsp");
+}
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,7 +107,7 @@ function passwordverification(){
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Account For Unregistered Patient!</h1>
                             </div>
-                            <form class="user" action="../Registrationinsert" method="post" onsubmit="passwordverification()">
+                            <form class="user" action="../Registrationinsert" method="post" onsubmit="passwordverification()" autocomplete="off">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" id="exampleFirstName"

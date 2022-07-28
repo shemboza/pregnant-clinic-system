@@ -113,7 +113,7 @@ PatientDao dao=new PatientDao();
                                    			e.printStackTrace();
                                    			
                                            }
-                                           
+                                            
                                            
                                            %>
                                          </div>
@@ -172,12 +172,48 @@ PatientDao dao=new PatientDao();
                                             </div>
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><%
+                                           try{
+                                   			Class.forName("com.mysql.jdbc.Driver");
+                                   			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/project2022","root","");
+                                   			Statement st=con.createStatement();
+                                   			String query="SELECT count(*) as any FROM `appointmenttable` WHERE appointmentDate is null";
+                                   			ResultSet rs=st.executeQuery(query);
+                                   			String countrow="";
+                                   			while(rs.next()){
+                                   				countrow=rs.getString(1);
+                                   				out.print(countrow);
+                                   			}
+                                   		}catch(ClassNotFoundException | SQLException e) {
+                                   			e.printStackTrace();
+                                   			
+                                           }
+                                           
+                                           
+                                           %></div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="progress progress-sm mr-2">
                                                         <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                                            style="width: <%
+                                           try{
+                                   			Class.forName("com.mysql.jdbc.Driver");
+                                   			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/project2022","root","");
+                                   			Statement st=con.createStatement();
+                                   			String query="SELECT count(*) FROM  employeedetail";
+                                   			ResultSet rs=st.executeQuery(query);
+                                   			String countrow="";
+                                   			while(rs.next()){
+                                   				countrow=rs.getString(1);
+                                   				out.print(countrow);
+                                   			}
+                                   		}catch(ClassNotFoundException | SQLException e) {
+                                   			e.printStackTrace();
+                                   			
+                                           }
+                                           
+                                           
+                                           %>%" aria-valuenow="50" aria-valuemin="0"
                                                             aria-valuemax="100"></div>
                                                     </div>
                                                 </div>
@@ -199,7 +235,25 @@ PatientDao dao=new PatientDao();
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><%
+                                           try{
+                                   			Class.forName("com.mysql.jdbc.Driver");
+                                   			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/project2022","root","");
+                                   			Statement st=con.createStatement();
+                                   			String query="SELECT count(*) as any FROM `appointmenttable` WHERE appointmentDate is null";
+                                   			ResultSet rs=st.executeQuery(query);
+                                   			String countrow="";
+                                   			while(rs.next()){
+                                   				countrow=rs.getString(1);
+                                   				out.print(countrow);
+                                   			}
+                                   		}catch(ClassNotFoundException | SQLException e) {
+                                   			e.printStackTrace();
+                                   			
+                                           }
+                                           
+                                           
+                                           %></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>

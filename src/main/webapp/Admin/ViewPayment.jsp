@@ -48,137 +48,13 @@ if(session.getAttribute("doctor")==null){
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                    
 
-                    <!-- Content Row -->
+                    
                     <div class="row">
 
                         <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> <%
-                                           try{
-                                   			Class.forName("com.mysql.jdbc.Driver");
-                                   			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/project2022","root","");
-                                   			Statement st=con.createStatement();
-                                   			String query="SELECT count(*) FROM registration";
-                                   			ResultSet rs=st.executeQuery(query);
-                                   			String countrow="";
-                                   			while(rs.next()){
-                                   				countrow=rs.getString(1);
-                                   				out.print(countrow);
-                                   			}
-                                   		}catch(ClassNotFoundException | SQLException e) {
-                                   			e.printStackTrace();
-                                   			
-                                           }
-                                           
-                                           
-                                           %></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"> <%
-                                           try{
-                                   			Class.forName("com.mysql.jdbc.Driver");
-                                   			Connection con=DriverManager.getConnection("jdbc:mysql://localhost/project2022","root","");
-                                   			Statement st=con.createStatement();
-                                   			String query="SELECT count(*) FROM  employeedetail";
-                                   			ResultSet rs=st.executeQuery(query);
-                                   			String countrow="";
-                                   			while(rs.next()){
-                                   				countrow=rs.getString(1);
-                                   				out.print(countrow);
-                                   			}
-                                   		}catch(ClassNotFoundException | SQLException e) {
-                                   			e.printStackTrace();
-                                   			
-                                           }
-                                           
-                                           
-                                           %></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Content Row -->
+                                            <!-- Content Row -->
 
                     <div class="row">
 
@@ -188,7 +64,7 @@ if(session.getAttribute("doctor")==null){
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">View Employee</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">View Appointment Payment</h6>
                                   
                                     </div>
                                 </div>
@@ -233,7 +109,7 @@ if(session.getAttribute("doctor")==null){
 						       <!-- Call to action buttons -->
 						       <ul class="list-inline m-0">
 						       <li class="list-inline-item">
-						     <a class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="View" href="Approve.jsp?id=<%=mod.getApointmentid()%>"><i class="fa fa-table"></i></a>
+						     <a class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="View" href="Approve.jsp?statusid=<%=mod.getApointmentid()%>"><i class="fa fa-table"></i></a>
 						       </li>                                        
 						       <li class="list-inline-item">
 						     <a class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="../ApprovePayment?statusid=<%=mod.getApointmentid()%>"><i class="fa fa-edit"></i></a>

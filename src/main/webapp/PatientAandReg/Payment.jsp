@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+ <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ page import="PatientAppandReg.*,java.util.*,LoginUser.*" %>
      <%
@@ -48,8 +48,8 @@ if(session.getAttribute("patient")==null){
 <%
 LoginModel m = (LoginModel)session.getAttribute("patient");
     		System.out.print(m.getPatientId());%>
-    		
-<% List<AppointmentModel> modl =AppointmentDao.GetByPatientId(m.getPatientId()); %>
+   		
+<% AppointmentModel modl =AppointmentDao.GetByPatientId(m.getPatientId()); %>
 <div id="wrapper">
 
         <!-- Sidebar -->
@@ -100,7 +100,7 @@ LoginModel m = (LoginModel)session.getAttribute("patient");
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" readonly
                                                 id="examplenumber" aria-describedby="emailHelp"
-                                                placeholder="Enter your appointment id " name="appid" value=<%=m.getUsername() %>> 
+                                                placeholder="Enter your appointment id " name="appid" value=<%=modl.getId() %>> 
                                         </div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"

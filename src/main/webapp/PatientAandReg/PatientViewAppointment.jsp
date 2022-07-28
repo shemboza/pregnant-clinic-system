@@ -34,7 +34,7 @@ if(session.getAttribute("patient")==null){
 <% 
 LoginModel m = (LoginModel)session.getAttribute("patient");
     		System.out.print(m.getPatientId());
-List<AppointmentModel> modl =AppointmentDao.GetByPatientId(m.getPatientId()); %>
+AppointmentModel modl =AppointmentDao.GetByPatientId(m.getPatientId()); %>
 
  <!-- Page Wrapper -->
     <div id="wrapper">
@@ -76,21 +76,21 @@ List<AppointmentModel> modl =AppointmentDao.GetByPatientId(m.getPatientId()); %>
 						  <tbody> 
 						 
 						    <tr>
-						   <% for(AppointmentModel mod:modl){ %>
-						    <td><%=mod.getId()%></td>
-						   	<td><%=mod.getPatientId()%></td>
-						   	<td><%=mod.getDate()%></td>
+					
+						    <td><%=modl.getId()%></td>
+						   	<td><%=modl.getPatientId()%></td>
+						   	<td><%=modl.getDate()%></td>
 						   
 						  
 						    
 						     <td>
 						     <li class="list-inline-item">
-						     <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="../DeleteAppointment?id=<%=mod.getId()%>"><i class="fa fa-trash"></i></a>
+						     <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="../DeleteAppointment?id=<%=modl.getId()%>"><i class="fa fa-trash"></i></a>
 						       </li>
 						      
 						       </td>
 						    <tr>
-						  <%}%>
+					
 						      
 						  </tr>
 						 

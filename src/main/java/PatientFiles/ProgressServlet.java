@@ -40,6 +40,7 @@ public class ProgressServlet extends HttpServlet {
 		doGet(request, response);
 		ProgressDao dao=new ProgressDao();
 		ProgressFileModel model=new ProgressFileModel();
+		model.setPatientid(request.getParameter("PatientFile"));
 		model.setFileno(request.getParameter("Filenumber"));
 		model.setAttendancedate(Date.valueOf(request.getParameter("AttendanceDate")));
 		model.setBodykg(Integer.parseInt(request.getParameter("bodykg")));
@@ -62,6 +63,7 @@ public class ProgressServlet extends HttpServlet {
 		model.setProffessionalname(request.getParameter("Professionalsignature"));
 		model.setProffposition(request.getParameter("Professionalposition"));
 		dao.Add(model);
+		response.sendRedirect("../Lab/LabDash.jsp");
 	}
 
 }

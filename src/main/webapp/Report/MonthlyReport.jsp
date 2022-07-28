@@ -76,10 +76,11 @@ System.out.print(mod.getId());
 
 <body> 
 <% PatientModel model=PatientDao.SellById(request.getParameter("id")); %>
+<%ProgressFileModel md=ProgressDao.SellBypatientId(request.getParameter("id")); %>
 <h2>Cost Report</h2>
 
 <h3>HOPE CLINIC CENTER</h3>
-<h5>From 1/01/2022 to 1/08/2022</h5>
+
 <table class="table1">
 <tr>
 <th class="title">PATIENT FIRST NAME:</th>
@@ -92,6 +93,14 @@ System.out.print(mod.getId());
 <tr>
 <th class="title">PATIENT ADDRESS:</th>
 <td><%=model.getAddress() %></td>
+</tr>
+<tr>
+<th class="title">ATTENDING DATE:</th>
+<td><%=md.getAttendancedate() %></td>
+</tr>
+<tr>
+<th class="title">DATE TO BE BACK:</th>
+<td><%=md.getDatetobeback() %></td>
 </tr>
 </table>
 <table class="table2">
@@ -154,16 +163,6 @@ System.out.print(mod.getId());
 			Doctor Name:............................         Doctor Signature:.............................
 
 </p>
-
-
- 
- 
- 
-
-
-
-
-
 
 
 

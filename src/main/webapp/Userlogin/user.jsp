@@ -1,4 +1,4 @@
-
+<%@page import ="LoginUser.*" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,12 +58,12 @@ function validate(email){
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user" name="form1" action="../SelectServletlogin" method="post">
+                                    <form class="user" name="form1" action="../SelectServletlogin" method="post" autocomplete="off">
                                     
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="email" aria-describedby="emailHelp" name="email"
-                                                placeholder="Enter Email Address..." autocomplete="off">
+                                                placeholder="Enter Email Address..." >
                                                 <span id="emails" class="text-danger font-italic font-weight-body"></span>
                                               
                                         </div>
@@ -72,25 +72,28 @@ function validate(email){
                                                 id="exampleInputPassword" placeholder="Password"  name="pass">
                                         </div>
                                        
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
-                                        <input type="submit" class="btn btn-primary btn-user btn-block"  onclick=" validate(document.form1.email)" value="Login Now">
                                         
+                                        <div class="form-group">
+                                        <input type="submit" class="btn btn-primary btn-user btn-block"  onclick=" validate(document.form1.email)" value="Login Now">
+                                        </div>
                                        
                                     </form>
+                                   
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.jsp">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="../PatientAandReg/reg.jsp">Create an Account!</a>
+                                         <a class="small" href="../PatientAandReg/reg.jsp">Create an Account!</a>
                                     </div>
                                  
-                                   
+                                   <div class="text-center">
+                                        	
+                                            <%if(request.getSession().getAttribute("error1")!=null){
+                                            	System.out.print(request.getSession().getAttribute("error1"));
+                                            	 out.println("<span style='color:red;'><i class='fas fa-exclamation-cicle'>"
+                                                         + request.getSession().getAttribute("error1")+"</span>");}
+                                           
+                                        request.getSession().setAttribute("error1", null);
+                                        request.getSession().setAttribute("succesful", null);
+                                        %>
+                                        </div>
                                 </div>
                             </div>
                         </div>

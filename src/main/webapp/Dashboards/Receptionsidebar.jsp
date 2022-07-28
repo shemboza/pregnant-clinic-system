@@ -2,16 +2,6 @@
 <!-- Sidebar -->
 <%@ page import="PatientAppandReg.*,java.util.*" %>
 
- <% response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
-	response.addHeader("Pragma", "no-cache");
-	response.addDateHeader("Expires", 0);
-	
-%>
-<%
-if(session.getAttribute("reception")==null){
-	response.sendRedirect("../Userlogin/user.jsp");
-}
-%>
 
 
 <!-- Sidebar -->
@@ -30,12 +20,26 @@ if(session.getAttribute("reception")==null){
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="Registration.jsp" >
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Registration Form</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="PrimaryFile.jsp" >
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Create Primary File</span>
+                </a>
+                
+      		 </li>
+            
           
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -49,16 +53,16 @@ if(session.getAttribute("reception")==null){
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" >
+                <a class="nav-link collapsed" href="ViewRegistration.jsp" >
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Progress File</span>
+                    <span>View Registration</span>
                 </a>
             </li>
  		<!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="../PatientAandReg/ViewAppointment2.jsp">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Print Progress Card</span></a>
+                    <span>View Appointment</span></a>
             </li>
         
 

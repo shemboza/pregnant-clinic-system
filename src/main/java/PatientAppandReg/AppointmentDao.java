@@ -19,7 +19,7 @@ public class AppointmentDao {
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			con=DriverManager.getConnection("jdbc:mysql://localhost/project2022","root","");
-			System.out.print("Connected");
+			
 		}catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 			
@@ -40,7 +40,7 @@ public class AppointmentDao {
 		
 			int rowsUpdated=ps.executeUpdate();
 			if(rowsUpdated>0) {
-			System.out.println("Appointment inserted successful");
+			
 		            
 		    }
 		}catch(SQLException ex) {
@@ -77,7 +77,7 @@ public class AppointmentDao {
 			 Connection con=myconn();
 			 PreparedStatement ps=con.prepareStatement("UPDATE `appointmenttable` SET appointmentDate=? WHERE appointmentId=?");
 			 ps.setDate(1, dol.getDate());
-			 System.out.print(dol.getDate());
+			 
 			 //ps.setString(2,"NULL");
 			
 			 ps.setInt(2, dol.getId());
@@ -116,7 +116,7 @@ public class AppointmentDao {
 					Date appointmentdate=rst.getDate("appointmentDate");
 					String reason=rst.getString("appointmentreason");
 					modl=new  AppointmentModel(appointmentId,appointmentdate,patientid,reason);
-					System.out.print(modl.getId());
+					
 					
 					}
 					
@@ -126,10 +126,9 @@ public class AppointmentDao {
 		return modl;
 		 
 		 
-	 }public static List <AppointmentModel> GetByPatientId(String i){
+	 }public static AppointmentModel GetByPatientId(String i){
 		 Connection con=myconn();
-		 AppointmentModel modl;
-		 List <AppointmentModel> d=new ArrayList<>();
+		 AppointmentModel modl = new AppointmentModel();
 		 try {
 			 String query="SELECT * FROM `appointmenttable` WHERE  patientId=?";
 				PreparedStatement ps=con.prepareStatement(query);
@@ -142,12 +141,12 @@ public class AppointmentDao {
 			String reason=rst.getString("appointmentreason");
 			Date appointmentdate=rst.getDate("appointmentDate");
 			modl=new AppointmentModel(appointmentId,appointmentdate,patientid,reason);
-			d.add(modl);
+			
 		}
 	}catch(SQLException ex) {
 		ex.printStackTrace();
 	}
-		return d;
+		return modl;
 		
 	}
 		

@@ -3,7 +3,7 @@ package PatientFiles;
 import java.sql.Date;
 
 public class ProgressFileModel {
-	String urine,kidplay,heatbeat,swollenlegs,sulphur,dozperweek,pepopunda,
+	String patientid,urine,kidplay,heatbeat,swollenlegs,sulphur,dozperweek,pepopunda,
 	dangersign,birthcontrol,birthpreparation,pmtct,balancediet,proffessionalname,proffposition,fileno;
 	Date attendancedate,datetobeback;
 	int bodykg,bloodpressure,lengthofpregnantperweek,heightofpregnant;
@@ -39,6 +39,44 @@ public class ProgressFileModel {
 	}
 	public ProgressFileModel() {
 		super();
+	}
+	
+	
+	public ProgressFileModel(String patientid, String urine, String kidplay, String heatbeat, String swollenlegs,
+			String sulphur, String dozperweek, String pepopunda, String dangersign, String birthcontrol,
+			String birthpreparation, String pmtct, String balancediet, String proffessionalname, String proffposition,
+			String fileno, Date attendancedate, Date datetobeback, int bodykg, int bloodpressure,
+			int lengthofpregnantperweek, int heightofpregnant) {
+		super();
+		this.patientid = patientid;
+		this.urine = urine;
+		this.kidplay = kidplay;
+		this.heatbeat = heatbeat;
+		this.swollenlegs = swollenlegs;
+		this.sulphur = sulphur;
+		this.dozperweek = dozperweek;
+		this.pepopunda = pepopunda;
+		this.dangersign = dangersign;
+		this.birthcontrol = birthcontrol;
+		this.birthpreparation = birthpreparation;
+		this.pmtct = pmtct;
+		this.balancediet = balancediet;
+		this.proffessionalname = proffessionalname;
+		this.proffposition = proffposition;
+		this.fileno = fileno;
+		this.attendancedate = attendancedate;
+		this.datetobeback = datetobeback;
+		this.bodykg = bodykg;
+		this.bloodpressure = bloodpressure;
+		this.lengthofpregnantperweek = lengthofpregnantperweek;
+		this.heightofpregnant = heightofpregnant;
+	}
+	
+	public String getPatientid() {
+		return patientid;
+	}
+	public void setPatientid(String patientid) {
+		this.patientid = patientid;
 	}
 	public String getUrine() {
 		return urine;

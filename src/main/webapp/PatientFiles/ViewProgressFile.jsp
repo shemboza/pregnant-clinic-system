@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="PatientFiles.*,java.util.*,java.sql.*" %>
+    <%@ page import="LoginUser.*" %>
+
+<%@ page import="PatientAppandReg.*,java.util.*" %>
+<%@ page import="java.sql.*" %>
+
+
+ 
+   
+	
+<%
+response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
+	response.addHeader("Pragma", "no-cache");
+	response.addDateHeader("Expires", 0);
+	
+%>
+<%
+if(session.getAttribute("doctor")==null){
+	response.sendRedirect("../Userlogin/user.jsp");
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,6 +97,7 @@
 						 
 						    <tr>
 						   <% for(ProgressFileModel mod:modl){ %>
+						    <td><%=mod.getPatientid()%></td>
 						    <td><%=mod.getFileno()%></td>
 						   	<td><%=mod.getAttendancedate()%></td>
 						   	<td><%=mod.getBodykg() %></td>
@@ -102,13 +123,13 @@
 						       <!-- Call to action buttons -->
 						       <ul class="list-inline m-0">
 							    <li class="list-inline-item">
-						     <a class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="Progressprint.jsp?id=<%=mod.getFileno()%>"><i class="fa fa-view"></i></a>
+						     <a class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Print" href="Progressprint.jsp?id=<%=mod.getFileno()%>"><i class="fa fa-table"></i></a>
 						       </li>                                           
 						       <li class="list-inline-item">
 						     <a class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit" href="ProgressFileEditing.jsp?id=<%=mod.getFileno()%>"><i class="fa fa-edit"></i></a>
 						       </li>
 						       <li class="list-inline-item">
-						     <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="../?id=<%=mod.getFileno() %>"><i class="fa fa-trash"></i></a>
+						     <a class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Delete" href="../DeleteProgressFile?id=<%=mod.getFileno() %>"><i class="fa fa-trash"></i></a>
 						       </li>
 						       </ul>
 						       </td>

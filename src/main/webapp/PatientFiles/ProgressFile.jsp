@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@page import="LoginUser.*,java.util.List,PatientFiles.*" %>
+     <%@ page import="LoginUser.*" %>
+
+<%@ page import="PatientAppandReg.*,java.util.*" %>
+<%@ page import="java.sql.*" %>
+
+
+ 
+   
+	
+<%
+response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0");
+	response.addHeader("Pragma", "no-cache");
+	response.addDateHeader("Expires", 0);
+	
+%>
+<%
+if(session.getAttribute("doctor")==null){
+	response.sendRedirect("../Userlogin/user.jsp");
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,6 +75,16 @@
                                 <h1 class="h4 text-gray-900 mb-4">Progress Attendance file</h1>
                             </div>
                             <form class="user" action="../ProgressServlet" method="post">
+                            <div class="form-group ">
+                                    
+                                        <select class="form-control" id="Filenumber"
+                                             name="PatientId">
+                                              <% for(PrimaryFileModel mod:modl){ %>
+                                             <option><%=mod.getPatientid() %></option>
+                                             <%} %>
+                                             </select>
+                                            
+                                    </div>
                                 <div class="form-group row ">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <select class="form-control" id="Filenumber"
@@ -70,11 +100,7 @@
                                      </div>
                                     
                                 </div>
-                                 <div class="form-group row">
-                                   
-                                   
-                                    
-                                  </div>
+                                 
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-user" id="BodyKg"
                                         placeholder="Kg" name="bodykg">
